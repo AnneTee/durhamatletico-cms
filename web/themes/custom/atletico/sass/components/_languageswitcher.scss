@@ -1,28 +1,34 @@
 .block-language-blocklanguage-interface {
-  float: right;
+  float: left;
   overflow: hidden;
-  text-transform: uppercase;
+  //text-transform: uppercase;
+
+  @include media($horizontal-bar-mode) {
+    float: right;
+  }
 
   li {
     display: inline;
-    margin-right: .25em;
+    line-height: $navigation-height-mobile;
+    padding-right: 1.75em;
 
-    @include media($header-break) {
-      line-height: 8em;
+    @include media($horizontal-bar-mode) {
+      line-height: $navigation-height;
     }
 
-    .is-active {
+    &.is-active {
       display: none;
     }
 
     a {
       @extend #{$all-buttons};
-      background-color: $logo-red;
+      background-color: $action-color;
       font-size: .8em;
+      font-weight: normal;
       margin-bottom: 1em;
       padding: .75em;
 
-      @include media($header-break) {
+      @include media($horizontal-bar-mode) {
         font-size: .9em;
         margin-bottom: 0;
       }
@@ -33,7 +39,7 @@
 
       &:hover,
       &:focus {
-        background-color: lighten($logo-red, 10%);
+        background-color: $logo-red;
       }
     }
   }
